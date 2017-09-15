@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="AubPlusAlarm.WhatsNext"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AubPlusAlarm"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Turn Off The Alarm" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="The next prime" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Pick a difficulty" 
+                           FontSize="20"/>
+                <ComboBox x:Name="ComboBox_Difficulty"  Margin="10,0,0,0" SelectedIndex="0" Width="125" 
+                          GotFocus="ComboBox_Difficulty_GotFocus">
+                    <ComboBoxItem Content="Easy" Tag="25" Width="Auto"/>
+                    <ComboBoxItem Content="Medium" Tag="50" Width="Auto"/>
+                    <ComboBoxItem Content="Hard" Tag="100" Width="Auto"/>
+                    <ComboBoxItem Content="Expert" Width="Auto"/>
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="What is the next Prime"
+                       FontSize="25" FontFamily="Yu Mincho Demibold"/>
+                <TextBlock HorizontalAlignment="Center"
+                       Margin="0,10,0,0"
+                       FontSize="35"
+                       Name="TextBlock_randomPrime"/>
+                <TextBox Margin="40"
+                     InputScope="Number"
+                     Name="TextBox_usersInput"/>
+            </StackPanel>
+          
+            <StackPanel Orientation="Horizontal">
+                <Button HorizontalAlignment="Center"
+                    Content="Let's see"
+                    Click="Button_Click"/>
+                <Button Content="Refresh"
+                        Name="refresh"
+                        Click="refresh_Click"
+                        Margin="150,0,0,0"/>
+            </StackPanel>
+                <TextBlock Name="TextBlock_WhatsnextAnswer"
+                       Margin="0,20,0,0"
+                       FontSize="25"
+                       TextWrapping="Wrap"
+                       Width="Auto"/>
+                <TextBlock Name="TextBlock_Divisibleby"
+                       Height="Auto"
+                       FontSize="20"
+                       TextWrapping="Wrap"
+                       Margin="0,10,0,0"
+                       />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

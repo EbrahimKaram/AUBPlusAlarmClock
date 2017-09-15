@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="AubPlusAlarm.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AubPlusAlarm"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Alarm Plus" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="Set Alarm" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+    
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+           <StackPanel>
+                <TextBlock Text="Set Date"
+                       Style="{ThemeResource TitleTextBlockStyle}"/>
+                <DatePicker/>
+                <TextBlock Text="Set Date"
+                           Style="{ThemeResource TitleTextBlockStyle}"/>
+                <TimePicker x:Name="PickedTime"
+                            />
+                <TextBlock Text="Set Ringtone"
+                           Style="{ThemeResource TitleTextBlockStyle}"/>
+                <Button x:ConnectionId='2' Content="Pick Ringtone"
+                        HorizontalAlignment="Center"
+                        BorderBrush="Transparent"
+                                            />
+                <TextBlock  Text="Repeat Alarm"  
+                        Name="TextBlock_RepeatAlarm"
+                        Style="{ThemeResource TitleTextBlockStyle}"/>
+
+                    <ScrollViewer>
+                        <StackPanel>
+                            <ListBox x:Name="RepeatDay"
+                                     SelectionMode="Multiple" 
+                                     Background="Black" 
+                                     Foreground="#FFD3C9C9"
+                         FontSize="15" FontStyle="Italic" FontWeight="Bold"
+                                     Height="120">
+                                <ListBoxItem Content="Every Monday" Width="120"/>
+                            <ListBoxItem Content="Every Tuesday" Width="120"/>
+                            <ListBoxItem Content="Every Wednesady" Width="120"/>
+                            <ListBoxItem Content="Every Thusday" Width="120"/>
+                            <ListBoxItem Content="Every Friday" Width="120"/>
+                            <ListBoxItem Content="Every Saturday" Width="120"/>
+                            <ListBoxItem Content="Every Sunday" Width="120"/>
+                            </ListBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                <Button x:ConnectionId='3' Content="Practice turning off th Alarm"
+                        Name="Button_Prime"
+                                                  />
+                    
+            </StackPanel>
+            <MediaElement x:ConnectionId='1'
+            x:Name="myMediaElement"
+                                                      
+            />
+
+        </Grid>
+    </Grid>
+
+</Page>
+
